@@ -1,0 +1,10 @@
+D:\Software Development\c#\ID3TagEditor\ID3TagEditor\bin\Debug\ID3TagEditor.exe.config
+D:\Software Development\c#\ID3TagEditor\ID3TagEditor\bin\Debug\ID3TagEditor.exe
+D:\Software Development\c#\ID3TagEditor\ID3TagEditor\bin\Debug\ID3TagEditor.pdb
+D:\Software Development\c#\ID3TagEditor\ID3TagEditor\obj\Debug\ID3TagEditor.csprojAssemblyReference.cache
+D:\Software Development\c#\ID3TagEditor\ID3TagEditor\obj\Debug\ID3TagEditor.Frm_mainForm.resources
+D:\Software Development\c#\ID3TagEditor\ID3TagEditor\obj\Debug\ID3TagEditor.Properties.Resources.resources
+D:\Software Development\c#\ID3TagEditor\ID3TagEditor\obj\Debug\ID3TagEditor.csproj.GenerateResource.cache
+D:\Software Development\c#\ID3TagEditor\ID3TagEditor\obj\Debug\ID3TagEditor.csproj.CoreCompileInputs.cache
+D:\Software Development\c#\ID3TagEditor\ID3TagEditor\obj\Debug\ID3TagEditor.exe
+D:\Software Development\c#\ID3TagEditor\ID3TagEditor\obj\Debug\ID3TagEditor.pdb
