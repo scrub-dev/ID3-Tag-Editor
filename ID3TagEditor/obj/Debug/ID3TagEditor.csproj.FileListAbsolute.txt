@@ -8,5 +8,6 @@ D:\Software Development\c#\ID3TagEditor\ID3TagEditor\obj\Debug\ID3TagEditor.cspr
 D:\Software Development\c#\ID3TagEditor\ID3TagEditor\obj\Debug\ID3TagEditor.csproj.CoreCompileInputs.cache
 D:\Software Development\c#\ID3TagEditor\ID3TagEditor\obj\Debug\ID3TagEditor.exe
 D:\Software Development\c#\ID3TagEditor\ID3TagEditor\obj\Debug\ID3TagEditor.pdb
+D:\Software Development\c#\ID3TagEditor\ID3TagEditor\obj\Debug\ID3TagEditor.Frm_settingsForm.resources
 D:\Software Development\c#\ID3TagEditor\ID3TagEditor\bin\Debug\policy.2.0.taglib-sharp.config
 D:\Software Development\c#\ID3TagEditor\ID3TagEditor\obj\Debug\ID3TagEditor.csproj.CopyComplete

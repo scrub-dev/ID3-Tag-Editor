@@ -20,7 +20,19 @@ namespace ID3TagEditor
 
         public Frm_mainForm()
         {
-            InitializeComponent(); 
+            InitializeComponent();
+
+            ToolTip TT_Main = new ToolTip();
+            if (Properties.Settings.Default.EnableToolTips) {
+                TT_Main.SetToolTip(this.Btn_selectFolder, "Select the folder with the audio files you want to edit.");
+                TT_Main.SetToolTip(this.Btn_previous, "Go back one song on the list.");
+                TT_Main.SetToolTip(this.Btn_write, "Write the Tags to the file.");
+                TT_Main.SetToolTip(this.Btn_next, "Go forward one song on the list.");
+                TT_Main.SetToolTip(this.Btn_eraseAll, "Erase all the tags for the files in the list.");
+                TT_Main.SetToolTip(this.Btn_erase, "Erase the tags for the currently selected file from the list.");
+                TT_Main.SetToolTip(this.Btn_clearOutput, "Clears the text from the output box.");
+            }
+
         }
 
         public void ChooseFolder() 
@@ -51,6 +63,7 @@ namespace ID3TagEditor
                     {
                         Lbx_files.Items.Add(Files[i].Substring(Txt_folderSelected.TextLength + 1));
                     }
+                    selected = 0;
                     Lbx_files.SetSelected(selected, true);
                 }
 
@@ -152,6 +165,14 @@ namespace ID3TagEditor
                 MessageBox.Show(ex.Message + "\n" + Txt_folderSelected.Text + "\\" + Txt_selectedSong.Text, "An Error Occured", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Console.WriteLine(ex);
             }
+            if (Properties.Settings.Default.ContOnWrite) {
+                if (selected < Lbx_files.Items.Count - 1)
+                {
+                    selected++;
+                    Lbx_files.SetSelected(selected, true);
+                }
+                else return;
+            }
         }
 
         private void Btn_eraseAll_Click(object sender, EventArgs e)
@@ -188,6 +209,48 @@ namespace ID3TagEditor
                 MessageBox.Show(ex.Message, "An Error has Occured", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+        }
+
+        private void Btn_next_Click(object sender, EventArgs e)
+        {
+            if (selected < Lbx_files.Items.Count - 1)
+            {
+                selected++;
+                Lbx_files.SetSelected(selected, true);
+            }
+            else return;
+        }
+
+        private void Btn_previous_Click(object sender, EventArgs e)
+        {
+            if (selected != 0)
+            {
+                selected--;
+                Lbx_files.SetSelected(selected, true);
+            }
+            else return;
+        }
+
+        private void Btn_clearOutput_Click(object sender, EventArgs e)
+        {
+            Rtb_output.Text = "";
+            Rtb_output.AppendText("Cleared Output...");
+        }
+
+        private void AboutUsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/Scott-Donaldson/ID3-Tag-Editor/blob/master/README.md");
+        }
+
+        private void ReportABugToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/Scott-Donaldson/ID3-Tag-Editor/issues");
+        }
+
+        private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_settingsForm Frm_settingsForm = new Frm_settingsForm();
+            Frm_settingsForm.ShowDialog();
         }
     }
 }

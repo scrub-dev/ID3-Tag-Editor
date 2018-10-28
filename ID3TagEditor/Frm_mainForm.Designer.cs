@@ -52,11 +52,11 @@
             this.Ms_mainMenuStrip = new System.Windows.Forms.MenuStrip();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.enableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutUsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reportABugToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.AboutUsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ReportABugToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Btn_eraseAll = new System.Windows.Forms.Button();
             this.Btn_erase = new System.Windows.Forms.Button();
+            this.Btn_clearOutput = new System.Windows.Forms.Button();
             this.Ms_mainMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -82,7 +82,7 @@
             this.Rtb_output.Location = new System.Drawing.Point(12, 256);
             this.Rtb_output.Name = "Rtb_output";
             this.Rtb_output.ReadOnly = true;
-            this.Rtb_output.Size = new System.Drawing.Size(279, 178);
+            this.Rtb_output.Size = new System.Drawing.Size(286, 178);
             this.Rtb_output.TabIndex = 2;
             this.Rtb_output.Text = "";
             this.Rtb_output.TextChanged += new System.EventHandler(this.Rtb_output_TextChanged);
@@ -92,7 +92,7 @@
             this.Lbx_files.FormattingEnabled = true;
             this.Lbx_files.Location = new System.Drawing.Point(304, 25);
             this.Lbx_files.Name = "Lbx_files";
-            this.Lbx_files.Size = new System.Drawing.Size(292, 407);
+            this.Lbx_files.Size = new System.Drawing.Size(280, 407);
             this.Lbx_files.TabIndex = 3;
             this.Lbx_files.SelectedIndexChanged += new System.EventHandler(this.Lbx_files_SelectedIndexChanged);
             // 
@@ -234,6 +234,7 @@
             this.Btn_previous.TabIndex = 21;
             this.Btn_previous.Text = "Previous";
             this.Btn_previous.UseVisualStyleBackColor = true;
+            this.Btn_previous.Click += new System.EventHandler(this.Btn_previous_Click);
             // 
             // Btn_write
             // 
@@ -253,6 +254,7 @@
             this.Btn_next.TabIndex = 23;
             this.Btn_next.Text = "Next";
             this.Btn_next.UseVisualStyleBackColor = true;
+            this.Btn_next.Click += new System.EventHandler(this.Btn_next_Click);
             // 
             // Ms_mainMenuStrip
             // 
@@ -270,38 +272,34 @@
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
             this.settingsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.settingsToolStripMenuItem.Text = "Settings";
+            this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.enableToolStripMenuItem,
-            this.aboutUsToolStripMenuItem,
-            this.reportABugToolStripMenuItem});
+            this.AboutUsToolStripMenuItem,
+            this.ReportABugToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.helpToolStripMenuItem.Text = "Help";
             // 
-            // enableToolStripMenuItem
+            // AboutUsToolStripMenuItem
             // 
-            this.enableToolStripMenuItem.Name = "enableToolStripMenuItem";
-            this.enableToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
-            this.enableToolStripMenuItem.Text = "Enable Tooltips";
+            this.AboutUsToolStripMenuItem.Name = "AboutUsToolStripMenuItem";
+            this.AboutUsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.AboutUsToolStripMenuItem.Text = "About Us";
+            this.AboutUsToolStripMenuItem.Click += new System.EventHandler(this.AboutUsToolStripMenuItem_Click);
             // 
-            // aboutUsToolStripMenuItem
+            // ReportABugToolStripMenuItem
             // 
-            this.aboutUsToolStripMenuItem.Name = "aboutUsToolStripMenuItem";
-            this.aboutUsToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
-            this.aboutUsToolStripMenuItem.Text = "About Us";
-            // 
-            // reportABugToolStripMenuItem
-            // 
-            this.reportABugToolStripMenuItem.Name = "reportABugToolStripMenuItem";
-            this.reportABugToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
-            this.reportABugToolStripMenuItem.Text = "Report a Bug";
+            this.ReportABugToolStripMenuItem.Name = "ReportABugToolStripMenuItem";
+            this.ReportABugToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ReportABugToolStripMenuItem.Text = "Report a Bug";
+            this.ReportABugToolStripMenuItem.Click += new System.EventHandler(this.ReportABugToolStripMenuItem_Click);
             // 
             // Btn_eraseAll
             // 
-            this.Btn_eraseAll.Location = new System.Drawing.Point(65, 227);
+            this.Btn_eraseAll.Location = new System.Drawing.Point(19, 227);
             this.Btn_eraseAll.Name = "Btn_eraseAll";
             this.Btn_eraseAll.Size = new System.Drawing.Size(90, 23);
             this.Btn_eraseAll.TabIndex = 25;
@@ -311,7 +309,7 @@
             // 
             // Btn_erase
             // 
-            this.Btn_erase.Location = new System.Drawing.Point(161, 227);
+            this.Btn_erase.Location = new System.Drawing.Point(115, 228);
             this.Btn_erase.Name = "Btn_erase";
             this.Btn_erase.Size = new System.Drawing.Size(90, 23);
             this.Btn_erase.TabIndex = 26;
@@ -319,11 +317,22 @@
             this.Btn_erase.UseVisualStyleBackColor = true;
             this.Btn_erase.Click += new System.EventHandler(this.Btn_erase_Click);
             // 
+            // Btn_clearOutput
+            // 
+            this.Btn_clearOutput.Location = new System.Drawing.Point(212, 227);
+            this.Btn_clearOutput.Name = "Btn_clearOutput";
+            this.Btn_clearOutput.Size = new System.Drawing.Size(86, 23);
+            this.Btn_clearOutput.TabIndex = 27;
+            this.Btn_clearOutput.Text = "Clear Output";
+            this.Btn_clearOutput.UseVisualStyleBackColor = true;
+            this.Btn_clearOutput.Click += new System.EventHandler(this.Btn_clearOutput_Click);
+            // 
             // Frm_mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(596, 450);
+            this.Controls.Add(this.Btn_clearOutput);
             this.Controls.Add(this.Btn_erase);
             this.Controls.Add(this.Btn_eraseAll);
             this.Controls.Add(this.Btn_next);
@@ -386,11 +395,11 @@
         private System.Windows.Forms.MenuStrip Ms_mainMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem enableToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem aboutUsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem reportABugToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem AboutUsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ReportABugToolStripMenuItem;
         private System.Windows.Forms.Button Btn_eraseAll;
         private System.Windows.Forms.Button Btn_erase;
+        private System.Windows.Forms.Button Btn_clearOutput;
     }
 }
 
